@@ -272,10 +272,8 @@
         // Replace sqrt( with Math.sqrt(
         expr = expr.replace(/sqrt\(/g, "Math.sqrt(");
 
-        // Replace abs( with Math.abs(
         expr = expr.replace(/abs\(/g, "Math.abs(");
 
-        // Replace log( with Math.log10(
         expr = expr.replace(/log\(/g, "Math.log10(");
 
         // Replace sin(, cos(, tan( with custom functions that convert degrees to radians
@@ -328,8 +326,6 @@
           try {
             let expr = display.value;
             expr = preprocessExpression(expr);
-            // Evaluate expression safely
-            // eslint-disable-next-line no-eval
             let result = eval(expr);
             if (typeof result === "number" && !isNaN(result) && isFinite(result)) {
               display.value = result;
